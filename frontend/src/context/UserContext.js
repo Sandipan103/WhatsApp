@@ -29,5 +29,5 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-const server =  "http://localhost:4000/api/v1";
+const server =  "https://api.w3yogesh.com/api/v1";
 export { AuthContext, AuthProvider, server };
