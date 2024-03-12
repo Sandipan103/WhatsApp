@@ -2,10 +2,13 @@
 // required dependency
 const express = require("express");
 const app = express();
+const http = require("http");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+const pasth = require('path')
+
 require("dotenv").config();
-const http = require("http");
 // required env string
 const PORT = process.env.PORT;
 
@@ -29,6 +32,25 @@ dbConnect()
 
     // Create the HTTP server
     const server = http.createServer(app);
+
+    const _dirname = path.dirname("")
+    const buildPath = path.join(_dirname  , "../frontend/build");
+    
+    app.use(express.static(buildPath))
+    
+    app.get("/*", function(req, res){
+    
+        res.sendFile(
+            path.join(__dirname, "../frontend/build/index.html"),
+            function (err) {
+              if (err) {
+                res.status(500).send(err);
+              }
+            }
+          );
+    
+    })
+
     console.log("connected");
     // Attach Socket.io to the HTTP server
     const io = require("socket.io")(server, {
@@ -50,7 +72,6 @@ dbConnect()
         const toSocket = userConnections.get(to);
         if (toSocket) {
           toSocket.emit('private-message', { from: userId, message });
-          
         }
       });
     
@@ -82,14 +103,13 @@ app.use(express.json());
 // routing
 const authRoutes = require("./routes/authRoutes")
 const profileRoutes = require("./routes/profileRoutes")
-const chatRoutes = require("./routes/chatRoutes")
-const groupRoutes = require("./routes/groupRoutes")
+const chatRoutes = require("./routes/chatRoutes");
+const path = require("path");
 
 
 app.use("/api/v1", authRoutes)
 app.use("/api/v1", profileRoutes)
 app.use("/api/v1", chatRoutes)
-app.use("/api/v1", groupRoutes)
 
 
 
