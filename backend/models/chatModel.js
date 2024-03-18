@@ -15,7 +15,9 @@ const chatModel = mongoose.Schema(
       ref: "Msg",
     }],
     groupAdmin: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    timestamp:{ type: Date, default: Date.now, }
+    timestamp:{ type: Date, default: Date.now, },
+    isTimerEnabled: { type: Boolean, default: false },
+    timer: { type: Number, default: 0 } ,
   },
 );
 

@@ -12,16 +12,24 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@zegocloud/zego-uikit-prebuilt": "^2.0.0",
+    "anything": "^1.0.0",
     "axios": "^1.6.7",
+    "framer-motion": "^11.0.14",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-cookie": "^7.0.2",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
+    "react-tsparticles": "^2.12.2",
+    "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.7.4",
+    "styled-components": "^6.1.8",
+    "tsparticles": "^3.3.0",
     "web-vitals": "^2.1.4",
     "zego-zim-web": "^2.14.0"
   },
@@ -48,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

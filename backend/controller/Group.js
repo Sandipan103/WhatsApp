@@ -271,7 +271,7 @@ exports.fetchAllMessages = async(req, res) => {
 
 exports.sendChatMessage = async (req, res) => {
   try {
-    const { myId, chatId, messageInput } = req.body;
+    const { myId, chatId, messageInput,deleteAt } = req.body;
     if (!myId) {
       return res.status(401).json({
         success: false,
@@ -289,6 +289,7 @@ exports.sendChatMessage = async (req, res) => {
       content: messageInput,
       chat: chatId,
       readBy: [myId],
+      deleteAt:deleteAt,
     });
 
     // const chat = await Chat.findById(newMessage.chat);
